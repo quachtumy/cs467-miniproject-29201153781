@@ -1,0 +1,106 @@
+================================================================================
+CS467 MINI-PROJECT MP-A10: SKINCARE AND COSMETICS PRODUCT RECOMMENDER
+Student Name: Quách Tú Mỹ  |  Student ID: 29201153781  |  Section: CS467A (No. 10)
+================================================================================
+
+--------------------------------------------------------------------------------
+TEST CASE 1: Need Query Recommendation
+User Query: 'gentle hydrating moisturizer for dry sensitive skin'
+Goal: Recommend top-5 products matching user needs using Sentiment-Boosted Hybrid.
+--------------------------------------------------------------------------------
+  1. [P019] Intensive Moisture Barrier Recovery Cream (Moisturizer)
+     Score: 0.5508 | Content Sim: 0.374 | Sentiment: 0.632 | Avg Rating: 5.0★
+     Top Matching Keywords: moisturizer, dry sensitive, sensitive skin
+     Reason: Hybrid Score: 0.551 [Content: 0.37, Rating: 1.00, Sentiment: 0.63]
+
+  2. [P023] Triple Oat Overnight Eczema Relief Balm (Moisturizer)
+     Score: 0.4966 | Content Sim: 0.321 | Sentiment: 0.686 | Avg Rating: 4.33★
+     Top Matching Keywords: moisturizer, sensitive skin, moisturizer dry
+     Reason: Hybrid Score: 0.497 [Content: 0.32, Rating: 0.83, Sentiment: 0.69]
+
+  3. [P021] Cica Panthenol 10% Soothing Barrier Cream (Moisturizer)
+     Score: 0.4661 | Content Sim: 0.307 | Sentiment: 0.493 | Avg Rating: 4.67★
+     Top Matching Keywords: moisturizer, sensitive skin, hydrating moisturizer
+     Reason: Hybrid Score: 0.466 [Content: 0.31, Rating: 0.92, Sentiment: 0.49]
+
+  4. [P001] Hydrating Gentle Foaming Cleanser (Cleanser)
+     Score: 0.4544 | Content Sim: 0.195 | Sentiment: 0.81 | Avg Rating: 4.5★
+     Top Matching Keywords: gentle, hydrating, gentle hydrating
+     Reason: Hybrid Score: 0.454 [Content: 0.20, Rating: 0.88, Sentiment: 0.81]
+
+  5. [P018] Multi-Weight Hyaluronic Acid Hydrating Serum (Serum)
+     Score: 0.3972 | Content Sim: 0.096 | Sentiment: 0.782 | Avg Rating: 4.67★
+     Top Matching Keywords: hydrating, dry sensitive, dry
+     Reason: Hybrid Score: 0.397 [Content: 0.10, Rating: 0.92, Sentiment: 0.78]
+
+
+--------------------------------------------------------------------------------
+TEST CASE 2: Similar Product Recommendation (Item-to-Item)
+Selected Product: [P026] Aqua UV Daily Sun Water Gel SPF50+ PA++++
+Goal: Find top-5 alternatives based on ingredient profile and skincare benefits.
+--------------------------------------------------------------------------------
+  1. [P027] Centella Calming Daily Sunscreen SPF50+ PA++++ (Sunscreen)
+     Similarity Score: 0.2246
+     Skin Type Tags: Sensitive, Redness-Prone, Combination
+     Shared Key Features: uv, chemical, sunscreen
+     Reason: Ingredient & feature similarity: 0.225 (shared: uv, chemical, sunscreen)
+
+  2. [P030] Birch Juice Moisturizing Sun Cream SPF50+ PA++++ (Sunscreen)
+     Similarity Score: 0.179
+     Skin Type Tags: Dry, Dehydrated, Sensitive
+     Shared Key Features: sunscreen, uv, chemical
+     Reason: Ingredient & feature similarity: 0.179 (shared: sunscreen, uv, chemical)
+
+  3. [P029] Matte Oil-Control Sun Shield SPF50+ PA++++ (Sunscreen)
+     Similarity Score: 0.1276
+     Skin Type Tags: Oily, Acne-Prone, Shiny Skin
+     Shared Key Features: uv, sunscreen, chemical
+     Reason: Ingredient & feature similarity: 0.128 (shared: uv, sunscreen, chemical)
+
+  4. [P020] Water-Gel Calming Oil-Free Hydrator (Moisturizer)
+     Similarity Score: 0.1054
+     Skin Type Tags: Oily, Combination, Dehydrated
+     Shared Key Features: gel, water gel, providing
+     Reason: Ingredient & feature similarity: 0.105 (shared: gel, water gel, providing)
+
+  5. [P028] Mineral Sheer Zinc Sunscreen SPF50+ PA++++ (Sunscreen)
+     Similarity Score: 0.0996
+     Skin Type Tags: Sensitive, Rosacea-Prone, Acne-Prone
+     Shared Key Features: sunscreen, spectrum, broad spectrum
+     Reason: Ingredient & feature similarity: 0.100 (shared: sunscreen, spectrum, broad spectrum)
+
+
+--------------------------------------------------------------------------------
+TEST CASE 3: Cold-Start Test (Newly Launched Product with No User Ratings)
+Adding New Product: [P041] Phyto-Glow Brightening Barrier Serum
+Description: Advanced antioxidant radiance serum with 10% Ascorbic Acid, Ferulic Acid, and Hyaluronic Acid for brightening hyperpigmentation and smoothing rough skin texture.
+Key Ingredients: Ascorbic Acid, Ferulic Acid, Hyaluronic Acid, Vitamin E, Alpha-Arbutin
+--------------------------------------------------------------------------------
+Test Query: 'antioxidant brightening serum with ascorbic acid and ferulic acid'
+  1. [P013] 20% Pure Vitamin C Brightening Serum 
+     Cosine Similarity: 0.5199 | Category: Serum
+     Top Matching Keywords: ferulic acid, ferulic, acid ferulic
+     Reason: TF-IDF cosine similarity: 0.520 (matches: ferulic acid, ferulic, acid ferulic)
+
+  2. [P041] Phyto-Glow Brightening Barrier Serum (★ NEW COLD-START ITEM ★)
+     Cosine Similarity: 0.4894 | Category: Serum
+     Top Matching Keywords: ferulic acid, ferulic, acid ferulic
+     Reason: TF-IDF cosine similarity: 0.489 (matches: ferulic acid, ferulic, acid ferulic)
+
+  3. [P010] Brightening Vitamin C Glycolic Toner 
+     Cosine Similarity: 0.1304 | Category: Toner
+     Top Matching Keywords: brightening, ascorbic acid, ascorbic
+     Reason: TF-IDF cosine similarity: 0.130 (matches: brightening, ascorbic acid, ascorbic)
+
+  4. [P018] Multi-Weight Hyaluronic Acid Hydrating Serum 
+     Cosine Similarity: 0.0636 | Category: Serum
+     Top Matching Keywords: serum, acid
+     Reason: TF-IDF cosine similarity: 0.064 (matches: serum, acid)
+
+  5. [P033] 10% Lactic Acid + HA Gentle Exfoliating Peel 
+     Cosine Similarity: 0.0477 | Category: Exfoliant
+     Top Matching Keywords: acid, serum
+     Reason: TF-IDF cosine similarity: 0.048 (matches: acid, serum)
+
+Verification Result: Newly added item P041 in Top-5? -> SUCCESS
+================================================================================
